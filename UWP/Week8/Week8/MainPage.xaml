@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="Week8.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Week8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Storyboard x:Name="EllStoryboard" RepeatBehavior="Forever">
+            <DoubleAnimation Duration="0:0:20" To="360" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="Picture" d:IsOptimized="True"></DoubleAnimation>
+        </Storyboard>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Ellipse Width="450" Height="450" Name="Picture" Stretch="UniformToFill" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5">
+            <Ellipse.RenderTransform>
+                <CompositeTransform/>
+            </Ellipse.RenderTransform>
+            <Ellipse.Fill>
+                <ImageBrush x:Name="imagebrush" ImageSource="Assets/bg.jpg"></ImageBrush>
+            </Ellipse.Fill>
+
+        </Ellipse>
+        <MediaPlayerElement Name="mediaplayer" AutoPlay="False" AreTransportControlsEnabled="False" Width="auto" Height="auto" HorizontalAlignment="Stretch"></MediaPlayerElement>
+        <Grid PointerEntered="controls_PointerEntered" PointerExited="controls_PointerExited" MinWidth="800" x:Name="controls" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+        <Slider Grid.Row="0" x:Name="timeslider" Width="300" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="400,8,400,52" Grid.RowSpan="2" ValueChanged="timeslider_ValueChanged"></Slider>
+        <CommandBar Grid.Row="1" x:Name="command" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <AppBarButton x:Name="play" Icon="play" Label="Play" VerticalAlignment="Bottom" Click="play_Click"></AppBarButton>
+            <AppBarButton x:Name="stop" Icon="Stop" Label="Stop" VerticalAlignment="Bottom" Click="stop_Click"></AppBarButton>
+            <AppBarButton x:Name="volumn" Icon="Volume" Label="Volume" VerticalAlignment="Bottom" Click="volumn_Click">
+            <FlyoutBase.AttachedFlyout>
+                <Flyout>
+                    <Slider x:Name="volumnslider" Width="100" VerticalAlignment="Bottom" ValueChanged="volumnslider_ValueChanged"></Slider>
+                </Flyout>
+            </FlyoutBase.AttachedFlyout>
+            </AppBarButton>
+            <AppBarButton x:Name="fullscreen" Icon="FullScreen" Label="FullSrceen" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="fullscreen_Click"></AppBarButton>
+            <AppBarButton x:Name="opensource" Icon="OpenFile" Label="Choose File" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="opensource_Click"></AppBarButton>
+            
+        </CommandBar>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Animal.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:animal ="using:Animal" Height="1172" Width="1546"
+    >
+
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="-15,0,0,0" HorizontalAlignment="Right" Width="1561">
+        <TextBox x:Name="textBox" Height="60" Width="220" Header="请输入动物名字" PlaceholderText="Type your animal name here" KeyDown="textBox_KeyDown" Margin="262,10,1079,1102"/>
+        <Button x:Name="ok" Height="40" Width="40" Margin="424,76,0,1056" Click="button1_Click">OK</Button>
+        <Button x:Name="random_button" Height="40" Width="60" Click="Button_Click" Margin="424,134,0,998" RenderTransformOrigin="0.435,-0.094">随机</Button>
+        <Border BorderThickness="3" BorderBrush="Black" Width="387" Padding="10" HorizontalAlignment="Center" Margin="95,237,1079,560">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="words" TextWrapping="Wrap"/>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="32" tileheight="32" infinite="0" nextobjectid="2">
+ <tileset firstgid="1" source="bg.tsx"/>
+ <layer name="bg" width="40" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzdlssOgjAQRbtSV+pKRRMLKgQfJH6yn+o0gaTezJQRsBAXJ1MoHS4cmpAYY/aROBBHjxkxJxaBcUacInGGfEtiRawD4ytx+zG5kG9DbIldYJxE8FoJ+f7Bb5PvEsHzvYPfJt8jgmfcw1Pzi46nsn8lxxq/ZX2tq7am9HpYZt6az++obJnHXt/4xfXYA89xx5iDsr40+TR+Q1mk+2jB9ZhP45fL5/dNYU5y52dq1rflG8JvX1xGqWcfv6ny3tp3ydHV7xDvTPPtDuW3UGQqvFrAOQu1q1+N01AmKZu0tzR+3X9BPkLFZ3I8Gdx/QTVC5bJwmd/XKWU5
+  </data>
+ </layer>
+ <objectgroup name="obj">
+  <object id="1" name="hero" x="159" y="417" width="33.3333" height="30">
+   <properties>
+    <property name="id" value="100"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

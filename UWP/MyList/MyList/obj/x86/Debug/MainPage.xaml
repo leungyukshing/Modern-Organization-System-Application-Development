@@ -1,0 +1,135 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="MyList.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:md="using:MyList.Models" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="Auto" Height="Auto">
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='2' x:Name="VisualStateGroup">
+                <VisualState x:ConnectionId='3' x:Name="VisualState000">
+                    <VisualState.Setters>
+                        <Setter Target="newpage.(UIElement.Visibility)" Value="Collapsed"/>
+                        <Setter Target="tb.(UIElement.Visibility)" Value="Collapsed"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:ConnectionId='4' x:Name="VisualState600">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="scrollViewer.(UIElement.Visibility)" Value="Visible"/>
+                        <Setter Target="newpage.(UIElement.Visibility)" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='5' x:Name="VisualState800">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid x:ConnectionId='6' x:Name="tb"></Grid>
+        
+        <ScrollViewer x:ConnectionId='7' x:Name="scrollViewer">
+            <Grid>
+                <Grid>
+                    <ListView x:ConnectionId='20' x:Name="listview" Grid.Column="0" IsItemClickEnabled="true"                                                                           >
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate                         >
+                                <UserControl x:ConnectionId='21'>
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="42"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+
+                                            <ColumnDefinition Width="100"/>
+
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.Resources>
+                                            <md:Converter x:Key="converter"></md:Converter>
+                                        </Grid.Resources>
+
+                                        <CheckBox x:ConnectionId='22' Grid.Column="0" VerticalAlignment="Center" Height="32" Width="26" x:Name="checkbox"                                             Margin="6,34,0,34"/>
+                                        <Image Grid.Column="1" Source="{Binding imageSource, Mode=TwoWay}" Height="90" Margin="0,5,0,5" x:Name="image" Visibility="{Binding Visibility, ElementName=tb}"/>
+                                        <TextBlock x:ConnectionId='23' Grid.Column="2"                       Width="150" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Black" Grid.ColumnSpan="2" Margin="0,40,0,40"/>
+                                        <Line Grid.Column="2" Stretch="Fill" Margin="4,49,0,49" X1="1" Stroke="Black" StrokeThickness="2" Visibility="{Binding Path=IsChecked , ElementName=checkbox,Converter={StaticResource converter}}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="2283"/>
+
+                                        <AppBarButton Grid.Column="3" Icon="Setting" IsCompact="True" VerticalAlignment="Center" Margin="0,20,0,20">
+                                            <AppBarButton.Flyout>
+                                                <MenuFlyout>
+                                                    <MenuFlyoutItem Text="Edit"/>
+                                                    <MenuFlyoutItem Text="Delete"/>
+                                                    <MenuFlyoutItem x:ConnectionId='24' Text="Share"                    />
+                                                </MenuFlyout>
+                                            </AppBarButton.Flyout>
+                                        </AppBarButton>
+
+                                    </Grid>
+                                </UserControl>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+                <Grid>
+                    <TextBox x:ConnectionId='18' x:Name="SearchBox" Width="120" Height="40" Margin="591,0,249,680"></TextBox>
+                    <Button x:ConnectionId='19' x:Name="SearchButton" Content="Search"                      Margin="736,0,0,688"></Button>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        
+        <Grid x:ConnectionId='8' x:Name="newpage" Grid.Column="1">
+            <ScrollViewer>
+                <Grid x:ConnectionId='9' x:Name="ToDoListView" MinHeight="550" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="140"></RowDefinition>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="120"></RowDefinition>
+                        <RowDefinition Height="280"></RowDefinition>
+                        <RowDefinition Height="70"></RowDefinition>
+                        <RowDefinition Height="60"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Image x:ConnectionId='10' Grid.Column="1" Grid.Row="0" Source="Assets/background.png" HorizontalAlignment="Center" x:Name="demo" Height="{Binding Value, ElementName=imageslider}" Width="{Binding Value, ElementName=imageslider}"></Image>
+                    <Button x:ConnectionId='11' Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" x:Name="upload" Content="Load"                      VerticalAlignment="Bottom"></Button>
+                    <Slider x:ConnectionId='12' Grid.Column="1" Grid.Row="1" x:Name="imageslider" Minimum="70" Maximum="140"></Slider>
+                    <TextBox x:ConnectionId='13' PlaceholderText="Please input title" TextWrapping="Wrap" Grid.Column="1" Grid.Row="2"  Style="{StaticResource header}" x:Name="title"   Height="100" Width="300" Header="Title"></TextBox>
+                    <TextBox x:ConnectionId='14' PlaceholderText="Please input description" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3" Style="{StaticResource header}" x:Name="detail" Width="300" Height="250" Header="Detail"/>
+                    <DatePicker x:ConnectionId='15' Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" x:Name="dueDatePicker"  Header="Due Date" Width="300" VerticalAlignment="Top"></DatePicker>
+                    <Button x:ConnectionId='16' Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" x:Name="create"                       Content="Create" VerticalAlignment="Center"></Button>
+                    <Button x:ConnectionId='17' Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" x:Name="cancel"                       Content="Cancel"></Button>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:ConnectionId='25' x:Name="DeleteAppBarButton" Icon="Delete" Label="Delete"                                  Visibility="Collapsed"/>
+            <AppBarButton x:ConnectionId='26' x:Name="AddAppBarButton" Icon="Add" Label="Add"                              />
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
+

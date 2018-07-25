@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="MyList.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyList"
+    xmlns:md="using:MyList.Models"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <Style x:Key="header" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="15 5 5 10"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+    </Application.Resources>
+</Application>
+
